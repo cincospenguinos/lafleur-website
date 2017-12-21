@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.3
+
+bundler_args: --without production
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database lafleur_website_dev;' -U postgres
+  - psql -c 'create database lafleur_website_test;' -U postgres
